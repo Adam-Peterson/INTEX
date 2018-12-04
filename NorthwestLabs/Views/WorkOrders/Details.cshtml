@@ -1,0 +1,66 @@
+﻿@model NorthwestLabs.Models.WorkOrder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WorkOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.ClientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.ClientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinQuotedPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinQuotedPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxQuotedPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxQuotedPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CashAdvance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CashAdvance)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
