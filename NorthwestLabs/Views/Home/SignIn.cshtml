@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "SignIn";
+}
+
+<h2>SignIn</h2>
+
+<body>
+    @using (Html.BeginForm("SignIn", "Home"))
+    {
+        @Html.Raw("Username:")<input type="text" name="userName" , id="userName" /> <br />
+        @Html.Raw("Password: ")<input type="text" name="password" , id="password" />
+        <input type="submit" />
+    }
+    <p id="error">@ViewBag.Error</p>
+</body>
