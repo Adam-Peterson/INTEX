@@ -1,4 +1,4 @@
-﻿@model NorthwestLabs.Models.Client
+﻿@model NorthwestLabs.Models.Compound
 
 @{
     ViewBag.Title = "GetQuote";
@@ -11,7 +11,8 @@
 <body>
     @using (Html.BeginForm("GetQuote", "Client"))
     {
-        @Html.Raw("Compound:")<input type="text" name="compound" id="compound" /> <br />
+        @Html.DropDownList("LTNumber", null, htmlAttributes: new { @class = "form-control" })
+
         @Html.Raw("Assay 1 ")<input type="checkbox" name="Assay1" value="true" id="Assay1" onclick="myFunction();" />
         <div id="box" style="display:none">
             @Html.Raw("(Required) Test 1: $10-$20 ")<input type="checkbox" name="Assay1Test1" value="true" id="Assay1Test1" disabled checked /><br />

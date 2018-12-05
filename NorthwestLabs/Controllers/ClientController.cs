@@ -56,11 +56,12 @@ namespace NorthwestLabs.Controllers
 
         public ActionResult GetQuote()
         {
+            ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "CompoundDescription");
             return View();
         }
 
         [HttpPost]
-        public ActionResult GetQuote(string compound, DateTime dueDate, string OrderComments, string cashAdvance, bool Assay1 = false, bool Assay1Test3 = false, bool Assay2 = false, bool Assay2Test2 = false, bool Assay2Test3 = false)
+        public ActionResult GetQuote(int LTNumber, DateTime dueDate, string OrderComments, string cashAdvance, bool Assay1 = false, bool Assay1Test3 = false, bool Assay2 = false, bool Assay2Test2 = false, bool Assay2Test3 = false)
         {
             decimal MinQuotedPrice = 0;
 
@@ -87,7 +88,9 @@ namespace NorthwestLabs.Controllers
             }
             decimal MaxQuotedPrice = MinQuotedPrice * 2;
             DateTime OrderDate = DateTime.Now;
-            sQuote = "The cost of running tests on " + compound + " will be between approximately $" + MinQuotedPrice + " and $" + MaxQuotedPrice;
+            string CompoundString = db.Compounds.Find(LTNumber).CompoundDescription;
+
+            sQuote = "The cost of running tests on " + CompoundString + " will be between approximately $" + MinQuotedPrice + " and $" + MaxQuotedPrice;
             int ClientID = 2;
 
             return RedirectToAction("PlaceOrder", new { ClientID, OrderDate, dueDate, MinQuotedPrice, MaxQuotedPrice, OrderComments, cashAdvance});
