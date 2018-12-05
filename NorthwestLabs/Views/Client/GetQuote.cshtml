@@ -12,18 +12,24 @@
     @using (Html.BeginForm("GetQuote", "Client"))
     {
         @Html.Raw("Compound:")<input type="text" name="compound" id="compound" /> <br />
-        @Html.Raw("Assay 1")<input type="checkbox" name="Assay1" value="true" id="Assay1" onclick="myFunction();" />
+        @Html.Raw("Assay 1 ")<input type="checkbox" name="Assay1" value="true" id="Assay1" onclick="myFunction();" />
         <div id="box" style="display:none">
-            @Html.Raw("(Required) Test 1: $10-$20")<input type="checkbox" name="Assay1Test1" value="true" id="Assay1Test1" disabled checked/><br />
-            @Html.Raw("(Required) Test 2: $15-$30")<input type="checkbox" name="Assay1Test2" value="true" id="Assay1Test2" disabled checked/><br />
-            @Html.Raw("(Optional) Test 2: $35-$70")<input type="checkbox" name="Assay1Test3" value="true" id="Assay1Test3" />
+            @Html.Raw("(Required) Test 1: $10-$20 ")<input type="checkbox" name="Assay1Test1" value="true" id="Assay1Test1" disabled checked /><br />
+            @Html.Raw("(Required) Test 2: $15-$30 ")<input type="checkbox" name="Assay1Test2" value="true" id="Assay1Test2" disabled checked /><br />
+            @Html.Raw("(Optional) Test 2: $35-$70 ")<input type="checkbox" name="Assay1Test3" value="true" id="Assay1Test3" />
         </div><br />
-        @Html.Raw("Assay 2")<input type="checkbox" name="Assay2" value="true" id="Assay2" onclick="myFunction2();" />
+        @Html.Raw("Assay 2 ")<input type="checkbox" name="Assay2" value="true" id="Assay2" onclick="myFunction2();" />
         <div id="box2" style="display:none">
-            @Html.Raw("(Required) Test 1: $20-$40")<input type="checkbox" name="Assay2Test1" value="true" id="Assay2Test1" disabled checked/><br />
-            @Html.Raw("(Optional) Test 2: $15-$30")<input type="checkbox" name="Assay2Test2" value="true" id="Assay2Test2" /><br />
-            @Html.Raw("(Optional) Test 2: $85-$170")<input type="checkbox" name="Assay2Test3" value="true" id="Assay2Test3" />
+            @Html.Raw("(Required) Test 1: $20-$40 ")<input type="checkbox" name="Assay2Test1" value="true" id="Assay2Test1" disabled checked /><br />
+            @Html.Raw("(Optional) Test 2: $15-$30 ")<input type="checkbox" name="Assay2Test2" value="true" id="Assay2Test2" /><br />
+            @Html.Raw("(Optional) Test 2: $85-$170 ")<input type="checkbox" name="Assay2Test3" value="true" id="Assay2Test3" />
         </div>
+        <br />
+        @Html.Raw("Order Comments:")<input type="text" name="Ordercomments" id="comments" /> <br />
+        @Html.Raw("Cash Advance:")<input type="text" name="cashAdvance" id="cashAdvance" /> <br />
+        <input type="date" id="dueDate" name="dueDate"
+               value="2018-12-04"
+               min="2018-12-04" max="2019-01-31">
         <br /><br /><br />
         <input type="submit" />
     }

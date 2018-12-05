@@ -1,13 +1,19 @@
-﻿using System;
+﻿using NorthwestLabs.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NorthwestLabs.DAL;
+using System.Data.Entity;
+
+
 
 namespace NorthwestLabs.Controllers
 {
     public class ClientController : Controller
     {
+        private NorthwestLabsContext db = new NorthwestLabsContext();
         public static string sQuote = "";
         // GET: Client
         public ActionResult Index()
@@ -25,8 +31,10 @@ namespace NorthwestLabs.Controllers
             return View();
         }
 
-        public ActionResult PlaceOrder()
+        public ActionResult PlaceOrder([Bind(Include = "OrderID, ClientID, OrderDate, DueDate, MinQuotedPrice,MaxQuotedPrice,OrderComments,CashAdvance")] WorkOrder workOrder)
         {
+            db.WorkOrders.Add(workOrder);
+            db.SaveChanges();
             ViewBag.Quote = sQuote;
             return View();
         }
@@ -52,34 +60,37 @@ namespace NorthwestLabs.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetQuote(string compound, bool Assay1 = false, bool Assay1Test3 = false, bool Assay2 = false, bool Assay2Test2 = false, bool Assay2Test3 = false)
+        public ActionResult GetQuote(string compound, DateTime dueDate, string OrderComments, string cashAdvance, bool Assay1 = false, bool Assay1Test3 = false, bool Assay2 = false, bool Assay2Test2 = false, bool Assay2Test3 = false)
         {
-            decimal Price = 0;
+            decimal MinQuotedPrice = 0;
 
             if (Assay1)
             {
-                Price += 25;
+                MinQuotedPrice += 25;
                 if (Assay1Test3)
                 {
-                    Price += 35;
+                    MinQuotedPrice += 35;
                 }
             }
 
             if (Assay2)
             {
-                Price += 20;
+                MinQuotedPrice += 20;
                 if (Assay2Test2)
                 {
-                    Price += 15;
+                    MinQuotedPrice += 15;
                 }
                 if (Assay2Test3)
                 {
-                    Price += 85;
+                    MinQuotedPrice += 85;
                 }
             }
+            decimal MaxQuotedPrice = MinQuotedPrice * 2;
+            DateTime OrderDate = DateTime.Now;
+            sQuote = "The cost of running tests on " + compound + " will be between approximately $" + MinQuotedPrice + " and $" + MaxQuotedPrice;
+            int ClientID = 2;
 
-            sQuote = "The cost of running tests on " + compound + " will be between approximately $" + Price + " and $ " + Price * 2;
-            return RedirectToAction("PlaceOrder");
+            return RedirectToAction("PlaceOrder", new { ClientID, OrderDate, dueDate, MinQuotedPrice, MaxQuotedPrice, OrderComments, cashAdvance});
         }
 
         public ActionResult PaymentSubmissionConfirmation()

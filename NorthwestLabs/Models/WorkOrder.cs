@@ -7,7 +7,7 @@ using System.Web;
 
 namespace NorthwestLabs.Models
 {
-    [Table("Team")]
+    [Table("WorkOrder")]
     public class WorkOrder
     {
         [Key]
@@ -15,8 +15,9 @@ namespace NorthwestLabs.Models
         public String OrderComments { get; set; }
         public Decimal MinQuotedPrice { get; set; }
         public Decimal MaxQuotedPrice { get; set; }
-        public DateTime DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
         public Decimal? CashAdvance { get; set; }
+        public DateTime OrderDate { get; set; }
 
         [ForeignKey("Client")]
         public virtual int? ClientID { get; set; }
