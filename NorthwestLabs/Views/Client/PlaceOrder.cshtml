@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "PlaceOrder";
+}
+
+<h2>PlaceOrder</h2>
+<p id="Quote">@ViewBag.Quote</p>
+
+
+
+
+<input type="button" value="Place Order" onclick="location.href='@Url.Action("Create", "PaymentInformations")'"/>

@@ -2,6 +2,33 @@
 @{
     ViewBag.Title = "Index";
 }
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/styles.css">
+</head>
 
 <h2>Index</h2>
+
+<div class="dropdown">
+    <button class="dropbtn">View Catalog</button>
+    <div class="dropdown-content">
+        @Html.ActionLink("Pharmocology Catalog", "PharmocologyCatalog")
+        @Html.ActionLink("Protocol Notebook", "ProtocolNotebook")
+    </div>
+</div>
+<br /><br />
+<div class="dropdown">
+    <button class="dropbtn">Work Order</button>
+    <div class="dropdown-content">
+        @Html.ActionLink("Get Quotes/Place Order", "GetQuote")
+        @Html.ActionLink("View Work Orders", "ViewWorkOrders")
+    </div>
+</div>
+<br /><br />
+<div class="dropdown">
+    <button class="dropbtn">Report</button>
+    <div class="dropdown-content">
+        @Html.ActionLink("Request Specialized Report", "RequestSpecializedReport")
+        @Html.ActionLink("View Report", "ViewReport")
+    </div>
+</div>
 

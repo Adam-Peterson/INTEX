@@ -1,0 +1,16 @@
+﻿@model NorthwestLabs.Models.PaymentInformation
+
+@{
+    ViewBag.Title = "PaymentSubmissionConfirmation";
+}
+
+<h2>Payment Submission Confirmation</h2>
+@if (Model != null)
+{
+    <input type="radio" name="gender" value="Use Existing Payment"><text>Male</text>
+    <input type="radio" name="gender" value="Input New Payment" onclick="MyPaymentFunction();"><text>Male</text>
+}
+else
+{
+
+}

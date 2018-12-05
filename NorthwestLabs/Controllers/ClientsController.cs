@@ -47,7 +47,7 @@ namespace NorthwestLabs.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientID,ClientName,ClientAddress,ClientAddressTwo,ClientState,ClientCity,ClientZip,DiscountPercentage,ClientPhoneNumber,ClientBalance,ClientEmail")] Client client)
+        public ActionResult Create([Bind(Include = "ClientID,ClientName,ClientAddress,ClientAddressTwo,ClientState,ClientCity,ClientZipCode,DiscountPercentage,ClientPhone,ClientBalance,ClientEmail")] Client client)
         {
             if (ModelState.IsValid)
             {
