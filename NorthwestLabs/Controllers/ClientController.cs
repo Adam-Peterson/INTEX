@@ -61,7 +61,7 @@ namespace NorthwestLabs.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetQuote(int LTNumber, DateTime dueDate, string OrderComments, string cashAdvance, bool Assay1 = false, bool Assay1Test3 = false, bool Assay2 = false, bool Assay2Test2 = false, bool Assay2Test3 = false)
+        public ActionResult GetQuote(int LTNumber, DateTime? dueDate, string OrderComments, string cashAdvance, bool Assay1 = false, bool Assay1Test3 = false, bool Assay2 = false, bool Assay2Test2 = false, bool Assay2Test3 = false)
         {
             decimal MinQuotedPrice = 0;
 

@@ -139,6 +139,7 @@
     <Compile Include="Controllers\PaymentInformationsController.cs" />
     <Compile Include="Controllers\SeattleController.cs" />
     <Compile Include="Controllers\SingaporeController.cs" />
+    <Compile Include="Controllers\TestTubesController.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="DAL\NorthwestLabsContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,6 +148,8 @@
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Compound.cs" />
     <Compile Include="Models\PaymentInformation.cs" />
+    <Compile Include="Models\TestTube.cs" />
+    <Compile Include="Models\TestTubeStatus.cs" />
     <Compile Include="Models\WorkOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -221,6 +224,12 @@
     <Content Include="Views\Client\ViewReport.cshtml" />
     <Content Include="Views\Client\GetQuote.cshtml" />
     <Content Include="Views\Client\PaymentSubmissionConfirmation.cshtml" />
+    <Content Include="Views\TestTubes\Create.cshtml" />
+    <Content Include="Views\TestTubes\Delete.cshtml" />
+    <Content Include="Views\TestTubes\Details.cshtml" />
+    <Content Include="Views\TestTubes\Edit.cshtml" />
+    <Content Include="Views\TestTubes\Index.cshtml" />
+    <Content Include="Views\TestTubes\Query.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

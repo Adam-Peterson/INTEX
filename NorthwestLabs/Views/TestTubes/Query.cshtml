@@ -1,0 +1,17 @@
+﻿@model NorthwestLabs.Models.TestTube
+
+@{
+    ViewBag.Title = "Query";
+}
+
+<h2>Scan Test Tube</h2>
+@using (Html.BeginForm("Query", "TestTubes"))
+{
+    @Html.Raw("Test Tube ID")<input type="text" name="TestSerialNumber" id="TestSerialNumber" autofocus="autofocus"/> <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+}

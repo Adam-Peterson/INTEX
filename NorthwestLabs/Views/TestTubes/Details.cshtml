@@ -1,0 +1,50 @@
+﻿@model NorthwestLabs.Models.TestTube
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TestTube</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Compound.CompoundDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compound.CompoundDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestTubeStatus.TestTubeStatusDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestTubeStatus.TestTubeStatusDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestTubeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestTubeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Concentration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Concentration)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TestSerialNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

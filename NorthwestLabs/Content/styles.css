@@ -48,3 +48,9 @@
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}

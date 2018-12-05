@@ -55,7 +55,7 @@ namespace NorthwestLabs.Controllers
             {
                 db.PaymentInformations.Add(paymentInformation);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PaymentSubmissionConfirmation", "Client");
             }
 
             ViewBag.ClientID = new SelectList(db.Clients, "ClientID", "ClientName", paymentInformation.ClientID);

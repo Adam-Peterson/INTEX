@@ -19,5 +19,8 @@ namespace NorthwestLabs.DAL
         public DbSet<PaymentInformation> PaymentInformations { get; set; }
         public DbSet<Compound> Compounds { get; set; }
 
+        public System.Data.Entity.DbSet<NorthwestLabs.Models.TestTube> TestTubes { get; set; }
+
+        public System.Data.Entity.DbSet<NorthwestLabs.Models.TestTubeStatus> TestTubeStatus { get; set; }
     }
 }

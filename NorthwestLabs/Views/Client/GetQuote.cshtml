@@ -5,14 +5,16 @@
 }
 <head>
     <script src="~/Scripts/MyScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/styles.css">
+
 </head>
 <h2>Get Quote</h2>
 
 <body>
     @using (Html.BeginForm("GetQuote", "Client"))
     {
-        @Html.DropDownList("LTNumber", null, htmlAttributes: new { @class = "form-control" })
-
+        <text>Select a Compound:</text>@Html.DropDownList("LTNumber", null, htmlAttributes: new { @class = "form-control" })
+        <text>Or Create a New Compound:</text>@Html.ActionLink("Create", "Create", "Compounds");<br /><br />
         @Html.Raw("Assay 1 ")<input type="checkbox" name="Assay1" value="true" id="Assay1" onclick="myFunction();" />
         <div id="box" style="display:none">
             @Html.Raw("(Required) Test 1: $10-$20 ")<input type="checkbox" name="Assay1Test1" value="true" id="Assay1Test1" disabled checked /><br />
@@ -26,10 +28,11 @@
             @Html.Raw("(Optional) Test 2: $85-$170 ")<input type="checkbox" name="Assay2Test3" value="true" id="Assay2Test3" />
         </div>
         <br />
-        @Html.Raw("Order Comments:")<input type="text" name="Ordercomments" id="comments" /> <br />
-        @Html.Raw("Cash Advance:")<input type="text" name="cashAdvance" id="cashAdvance" /> <br />
-        <input type="date" id="dueDate" name="dueDate"
-               value="2018-12-04"
+        @Html.Raw("Order Comments: (Optional)")<input type="text" name="Ordercomments" id="comments" /> <br />
+        @Html.Raw("Cash Advance: (Optional)")<input type="text" name="cashAdvance" id="cashAdvance" /> <br />
+        <text>Due Date: (Optional)</text><input type="date" id="dueDate" name="dueDate"
+               value="yyyy-mm-dd"
+               -webkit-appearance: none;
                min="2018-12-04" max="2019-01-31">
         <br /><br /><br />
         <input type="submit" />
