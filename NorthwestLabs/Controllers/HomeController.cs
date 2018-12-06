@@ -8,7 +8,9 @@ namespace NorthwestLabs.Controllers
 {
     public class HomeController : Controller
     {
-        public bool isAuthenitcated = false;
+        public static bool isClientAuthenitcated = false;
+        public static bool isSeattleAuthenitcated = false;
+        public static bool isSingaporeAuthenitcated = false;
         public string Error = "";
         public ActionResult Index()
         {

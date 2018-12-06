@@ -136,7 +136,6 @@
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\CompoundsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PaymentInformationsController.cs" />
     <Compile Include="Controllers\SeattleController.cs" />
     <Compile Include="Controllers\SingaporeController.cs" />
     <Compile Include="Controllers\TestTubesController.cs" />
@@ -147,7 +146,6 @@
     </Compile>
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Compound.cs" />
-    <Compile Include="Models\PaymentInformation.cs" />
     <Compile Include="Models\TestTube.cs" />
     <Compile Include="Models\TestTubeStatus.cs" />
     <Compile Include="Models\WorkOrder.cs" />
@@ -202,11 +200,6 @@
     <Content Include="Views\Compounds\Details.cshtml" />
     <Content Include="Views\Compounds\Edit.cshtml" />
     <Content Include="Views\Compounds\Index.cshtml" />
-    <Content Include="Views\PaymentInformations\Create.cshtml" />
-    <Content Include="Views\PaymentInformations\Delete.cshtml" />
-    <Content Include="Views\PaymentInformations\Details.cshtml" />
-    <Content Include="Views\PaymentInformations\Edit.cshtml" />
-    <Content Include="Views\PaymentInformations\Index.cshtml" />
     <Content Include="Views\WorkOrders\Create.cshtml" />
     <Content Include="Views\WorkOrders\Delete.cshtml" />
     <Content Include="Views\WorkOrders\Details.cshtml" />
@@ -230,6 +223,9 @@
     <Content Include="Views\TestTubes\Edit.cshtml" />
     <Content Include="Views\TestTubes\Index.cshtml" />
     <Content Include="Views\TestTubes\Query.cshtml" />
+    <Content Include="Views\Client\TempView.cshtml" />
+    <Content Include="Views\Singapore\scheduleTests.cshtml" />
+    <Content Include="Views\Singapore\viewSchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

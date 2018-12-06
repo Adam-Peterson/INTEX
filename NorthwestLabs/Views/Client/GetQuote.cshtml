@@ -11,6 +11,7 @@
 <h2>Get Quote</h2>
 
 <body>
+    Each order has a $50 base charge<br />
     @using (Html.BeginForm("GetQuote", "Client"))
     {
         <text>Select a Compound:</text>@Html.DropDownList("LTNumber", null, htmlAttributes: new { @class = "form-control" })

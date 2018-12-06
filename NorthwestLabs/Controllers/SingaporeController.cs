@@ -13,5 +13,15 @@ namespace NorthwestLabs.Controllers
         {
             return View();
         }
+
+        public ActionResult scheduleTests()
+        {
+            return View();
+        }
+
+        public ActionResult viewSchedule()
+        {
+            return View();
+        }
     }
 }

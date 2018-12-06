@@ -12,7 +12,15 @@ namespace NorthwestLabs.Models
     {
         [Key]
         public int LTNumber { get; set; }
+
+        [Display(Name = "Compound Description")]
+        [Required(ErrorMessage = "Compound Description Required")]
+        [StringLength(50, MinimumLength = 0, ErrorMessage = "Compound Description must be 250 characters or less")]
         public string CompoundDescription { get; set; }
+
+        [Display(Name = "Maximum Tolerated Dosage")]
+        [Required(ErrorMessage = "Maximum Tolerated Dosage Required")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Maximum Tolerated Dosage must be numeric")]
         public decimal MaxToleratedDosage { get; set; }
 
         [ForeignKey("WorkOrder")]

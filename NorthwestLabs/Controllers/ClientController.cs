@@ -30,7 +30,7 @@ namespace NorthwestLabs.Controllers
         {
             return View();
         }
-
+        
         public ActionResult PlaceOrder([Bind(Include = "OrderID, ClientID, OrderDate, DueDate, MinQuotedPrice,MaxQuotedPrice,OrderComments,CashAdvance")] WorkOrder workOrder)
         {
             db.WorkOrders.Add(workOrder);
@@ -63,7 +63,7 @@ namespace NorthwestLabs.Controllers
         [HttpPost]
         public ActionResult GetQuote(int LTNumber, DateTime? dueDate, string OrderComments, string cashAdvance, bool Assay1 = false, bool Assay1Test3 = false, bool Assay2 = false, bool Assay2Test2 = false, bool Assay2Test3 = false)
         {
-            decimal MinQuotedPrice = 0;
+            decimal MinQuotedPrice = 50;
 
             if (Assay1)
             {
@@ -90,13 +90,24 @@ namespace NorthwestLabs.Controllers
             DateTime OrderDate = DateTime.Now;
             string CompoundString = db.Compounds.Find(LTNumber).CompoundDescription;
 
-            sQuote = "The cost of running tests on " + CompoundString + " will be between approximately $" + MinQuotedPrice + " and $" + MaxQuotedPrice;
             int ClientID = 2;
+            decimal? discountValue = db.Clients.Find(ClientID).DiscountPercentage;
+            decimal? clientBalance = db.Clients.Find(ClientID).ClientBalance;
+            MinQuotedPrice = MinQuotedPrice * ((decimal)discountValue / 100);
+            MaxQuotedPrice = MaxQuotedPrice * ((decimal)discountValue / 100);
+
+            sQuote = "The cost of running tests on " + CompoundString + " will be between approximately $" + MinQuotedPrice + " and $" + MaxQuotedPrice + ". Your current balance you can use on this purchase is " + clientBalance;
+
 
             return RedirectToAction("PlaceOrder", new { ClientID, OrderDate, dueDate, MinQuotedPrice, MaxQuotedPrice, OrderComments, cashAdvance});
         }
 
         public ActionResult PaymentSubmissionConfirmation()
+        {
+            return View();
+        }
+
+        public ActionResult TempView()
         {
             return View();
         }

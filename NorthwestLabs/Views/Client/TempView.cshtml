@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "TempView";
+}
+
+<h2>TempView</h2>
+
+This page would redirect by URI to Quickbooks for payment processessing and confirmation. Upon completition of transaction, the user payment confirmation would 
+be sent to us and the user would be redirected back by URI to our site to continue the session. 
+
+@Html.ActionLink("Continue", "PaymentSubmissionConfirmation", "Client");
