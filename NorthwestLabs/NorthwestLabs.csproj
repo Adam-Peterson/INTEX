@@ -166,7 +166,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\banner.jpg" />
+    <Content Include="images\performance dashboard.png" />
+    <Content Include="images\profit-and-loss-financial-dashboard.png" />
     <Content Include="images\quickbooks.png" />
+    <Content Include="images\catalog.png" />
+    <Content Include="images\catalog2.png" />
     <Content Include="js\easing.js" />
     <Content Include="js\jquery-1.8.3.min.js" />
     <Content Include="js\jquery.chocolat.js" />
