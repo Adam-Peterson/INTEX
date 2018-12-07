@@ -54,62 +54,23 @@
 </head>
 <body>
     <div class="sidenav">
-        <button class="dropdown-btn">
-            Customer Support
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="#">
-                @Html.ActionLink("Generate Quote", "GenerateQuoteSeattle", "Seattle")
-            </a>
-            <a href="#">@Html.ActionLink("Create New Client", "Create", "Clients")</a>
-            <button class="dropdown-btn">
-                Client Account
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="#">@Html.ActionLink("Client Balance", "Index", "Clients")</a>
-                <a href="#">@Html.ActionLink("Client Reports", "ViewReport", "Client")</a>
-                <a href="#">@Html.ActionLink("Client Work Orders", "ClientWorkOrders", "Seattle")</a>
 
-            </div>
-        </div>
-        <button class="dropdown-btn">
-            Maintain Work Orders
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="#"> @Html.ActionLink("Process/Approval", "ProcessApproval")</a>
-            <a href="#">@Html.ActionLink("Work Order Status", "Index", "WorkOrders")</a>
-            <a href="#">@Html.ActionLink("Completed Tests", "CompletedTests", "Seattle")</a>
+        <a href="#">@Html.ActionLink("Schedule Tests", "scheduleTests", "Singapore")</a>
+        <a href="#">@Html.ActionLink("View Schedule", "viewSchedule", "Singapore")</a>
+        <a href="#">@Html.ActionLink("Test Tube Status", "Index", "TestTubes")</a>
+        <a href="#">@Html.ActionLink("Query Test Tube", "Query", "TestTubes")</a>
 
-        </div>
-        <button class="dropdown-btn">
-            Management Reports
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="#"> @Html.ActionLink("Performance Reports", "PerformanceReports")</a>
-            <a href="#">@Html.ActionLink("Profitability Reports", "ProfitabilityReports")</a>
-        </div>
-
-        <button class="dropdown-btn">
-            Catalogs
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="#"> @Html.ActionLink("Pharmacology Catalog", "PharmocologyCatalog", "Client")</a>
-            <a href="#">@Html.ActionLink("Protocal Notebook", "ProtocolNotebook", "Client")</a>
-        </div>
 
     </div>
     <div class="main">
         <div style="margin-top: 0px; margin-left: 20px; margin-right: 20px;">
 
             <p>
+                <br />
                 <input type="button" value="Scan Another Test Tube" onclick="location.href='@Url.Action("Query", "TestTubes")'" />
                 <input type="button" value="Enter New Test Tube" onclick="location.href='@Url.Action("Create", "TestTubes")'" />
             </p>
+            <br /><br />
             <p>
                 <table class="table">
                     <tr>
