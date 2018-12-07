@@ -142,7 +142,16 @@ namespace NorthwestLabs.Controllers
         [HttpPost]
         public ActionResult Query(string TestSerialNumber)
         {
-            return RedirectToAction("Edit", "TestTubes", new { id = TestSerialNumber });
+            var product = db.TestTubes.Find(TestSerialNumber);
+            if (product != null)
+            {
+                return RedirectToAction("Edit", "TestTubes", new { id = TestSerialNumber });
+            }
+            else
+            {
+                ViewBag.Error = "Test Tube not found. Please scan again";
+                return View();
+            }
         }
     }
 }

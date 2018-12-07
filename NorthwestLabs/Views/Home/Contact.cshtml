@@ -1,17 +1,20 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="jumbotron" style="margin:50px;">
+    <address>
+        5555 Main Street<br />
+        Seattle, WA 98101<br />
+        <abbr title="Phone">Phone:</abbr>
+        425-555-0100
+    </address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    <address>
+        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@NorthwestLabs.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@NorthwestLabs.com</a>
+    </address>
+
+    If you would like to submit an application to become a customer please <u>@Html.ActionLink("Click Here", "CreatePotentialClient", "Home")</u>. Your application will be reviewed by our customer
+    support team and notice will be sent to you upon approval.
+</div>

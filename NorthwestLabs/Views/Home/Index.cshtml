@@ -1,33 +1,88 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-@Html.ActionLink("Sign In", "SignIn")
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development. 
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="~/js/jquery-1.8.3.min.js"></script>
+    <script src="~/js/modernizr.custom.97074.js"></script>
+    <!---- start-smoth-scrolling---->
+    <script type="text/javascript" src="~/js/move-top.js"></script>
+    <script type="text/javascript" src="~/js/easing.js"></script>
+    <script type="text/javascript">jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1200);
+            });
+        });</script>
+    <!---End-smoth-scrolling---->
+    <!--script-->
+    <script src="~/js/jquery.chocolat.js"></script>
+    <link rel="stylesheet" href="~/css/chocolat.css" type="text/css" media="screen" charset="utf-8">
+    <!--light-box-files -->
+    <script type="text/javascript" charset="utf-8">$(function () {
+            $('.gallery a').Chocolat();
+        });</script>
+    <!--script-->
+</head>
+<body>
+    <div class="header" id="home">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">
+                    <a>Northwest<span>Labs</span></a>
+                </div>
+                <div class="top-menu">
+                    <span class="menu"> </span>
+                    <ul>
+                        <li><a class="active scroll">@Html.ActionLink("Home", "Index", "Home")</a></li>
+                        <li><a class="scroll">@Html.ActionLink("About", "About", "Home")</a></li>
+                        <li><a class="scroll">@Html.ActionLink("Contact", "Contact", "Home")</a></li>
+                        <li><a class="scroll">@Html.ActionLink("Sign In", "SignIn", "Home")</a></li>
+                    </ul>
+                </div>
+                <!--script-nav-->
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <center>
+            <div class="content" style="display:inline-block;">
+                <div class="services-section" id="services">
+                    <div class="container">
+                        <div class="services-grids">
+                            <h3>LABORATORY SERVICES AND TESTS</h3>
+                            <br />
+                            <br />
+                            <br />
+                            <div class="jumbotron grid-single">
+                                <p class="lead h2 text-center">
+                                    High-quality, reliable testing for pharmaceutical<br />
+                                    processors and manufacturers
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

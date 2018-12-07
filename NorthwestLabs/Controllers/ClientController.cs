@@ -41,7 +41,8 @@ namespace NorthwestLabs.Controllers
 
         public ActionResult ViewWorkOrders()
         {
-            return View();
+            var workOrders = db.WorkOrders.Include(w => w.Client);
+            return View(workOrders.ToList());
         }
 
         public ActionResult RequestSpecializedReport()
@@ -96,7 +97,7 @@ namespace NorthwestLabs.Controllers
             MinQuotedPrice = MinQuotedPrice * ((decimal)discountValue / 100);
             MaxQuotedPrice = MaxQuotedPrice * ((decimal)discountValue / 100);
 
-            sQuote = "The cost of running tests on " + CompoundString + " will be between approximately $" + MinQuotedPrice + " and $" + MaxQuotedPrice + ". Your current balance you can use on this purchase is " + clientBalance;
+            sQuote = "The cost of running tests on " + CompoundString + " will be between approximately $" + MinQuotedPrice + " and $" + MaxQuotedPrice + ". Your current balance you can use on this purchase is $" + clientBalance + ".";
 
 
             return RedirectToAction("PlaceOrder", new { ClientID, OrderDate, dueDate, MinQuotedPrice, MaxQuotedPrice, OrderComments, cashAdvance});
@@ -110,6 +111,17 @@ namespace NorthwestLabs.Controllers
         public ActionResult TempView()
         {
             return View();
+        }
+
+        public ActionResult ViewTestTube()
+        {
+            var testTubes = db.TestTubes.Include(t => t.Compound).Include(t => t.TestTubeStatus);
+            return View(testTubes.ToList());
+        }
+
+        public ActionResult Account()
+        {
+            return View(db.Clients.ToList());
         }
     }
 }

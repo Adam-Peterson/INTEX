@@ -4,8 +4,12 @@
 }
 
 <h2>TempView</h2>
+<div>
+    This page would redirect by to Quickbooks and a token would be passed for payment processessing and confirmation. Upon completition of transaction, the user payment confirmation would
+    be sent to us and the user would be redirected back by URI to our site to continue the session.
+    <input type="button" value="Continue" onclick="location.href='@Url.Action("PaymentSubmissionConfirmation", "Client")'" />
 
-This page would redirect by URI to Quickbooks for payment processessing and confirmation. Upon completition of transaction, the user payment confirmation would 
-be sent to us and the user would be redirected back by URI to our site to continue the session. 
-
-@Html.ActionLink("Continue", "PaymentSubmissionConfirmation", "Client");
+</div>
+<center>
+    <img src="~/images/quickbooks.png" />
+</center>

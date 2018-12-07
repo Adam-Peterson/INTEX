@@ -1,13 +1,18 @@
-﻿using System;
+﻿using NorthwestLabs.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NorthwestLabs.Models;
+
 
 namespace NorthwestLabs.Controllers
 {
     public class HomeController : Controller
     {
+        private NorthwestLabsContext db = new NorthwestLabsContext();
+
         public static bool isClientAuthenitcated = false;
         public static bool isSeattleAuthenitcated = false;
         public static bool isSingaporeAuthenitcated = false;
@@ -59,7 +64,27 @@ namespace NorthwestLabs.Controllers
             }
         }
 
-        
+        public ActionResult CreatePotentialClient()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreatePotentialClient([Bind(Include = "ClientID,ClientName,ClientAddress,ClientAddressTwo,ClientState,ClientCity,ClientZipCode,DiscountPercentage,ClientPhone,ClientBalance,ClientEmail")] Client client)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Clients.Add(client);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(client);
+        }
+
+
 
     }
 }

@@ -146,6 +146,7 @@
     </Compile>
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Compound.cs" />
+    <Compile Include="Models\GlobalVariables.cs" />
     <Compile Include="Models\TestTube.cs" />
     <Compile Include="Models\TestTubeStatus.cs" />
     <Compile Include="Models\WorkOrder.cs" />
@@ -157,12 +158,26 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\chocolat.css" />
+    <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\quickbooks.png" />
+    <Content Include="js\easing.js" />
+    <Content Include="js\jquery-1.8.3.min.js" />
+    <Content Include="js\jquery.chocolat.js" />
+    <Content Include="js\jquery.hoverdir.js" />
+    <Content Include="js\modernizr.custom.97074.js" />
+    <Content Include="js\move-top.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\OpenSans-Regular.ttf" />
+    <Content Include="fonts\Play-Bold.ttf" />
+    <Content Include="fonts\Play-Regular.ttf" />
     <None Include="Properties\PublishProfiles\NorthwestLabs20181204021656 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -226,6 +241,23 @@
     <Content Include="Views\Client\TempView.cshtml" />
     <Content Include="Views\Singapore\scheduleTests.cshtml" />
     <Content Include="Views\Singapore\viewSchedule.cshtml" />
+    <Content Include="Views\Seattle\ProcessApproval.cshtml" />
+    <Content Include="Views\Seattle\ClientWorkOrders.cshtml" />
+    <Content Include="Views\Seattle\CompletedTests.cshtml" />
+    <Content Include="Views\Seattle\CreateSummary.cshtml" />
+    <Content Include="Views\Seattle\GenerateInvoice.cshtml" />
+    <Content Include="Views\Seattle\Details.cshtml" />
+    <Content Include="Views\Seattle\Approve.cshtml" />
+    <Content Include="Views\Seattle\Deny.cshtml" />
+    <Content Include="Views\Seattle\PerformanceReports.cshtml" />
+    <Content Include="Views\Seattle\ProfitabilityReports.cshtml" />
+    <Content Include="Views\Client\ViewTestTube.cshtml" />
+    <Content Include="Views\Seattle\GenerateQuoteSeattle.cshtml" />
+    <Content Include="Views\Client\Account.cshtml" />
+    <Content Include="Views\Seattle\ViewReportSeattle.cshtml" />
+    <Content Include="Views\Seattle\PharmocologyCatalog.cshtml" />
+    <Content Include="Views\Seattle\ProtocolNotebook.cshtml" />
+    <Content Include="Views\Home\CreatePotentialClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

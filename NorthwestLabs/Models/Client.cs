@@ -44,7 +44,7 @@ namespace NorthwestLabs.Models
         public string ClientZipCode { get; set; }
 
         [Display(Name = "Discount Percentage (Enter Whole Number)")]
-        [RegularExpression("^[1-9] [0-9]?$|^100$", ErrorMessage = "Price must be between 0 and 100")]
+        [RegularExpression("^[1-9] [0-9]?$|^100$", ErrorMessage = "Discount Percentage must be between 0 and 100")]
         public Decimal? DiscountPercentage { get; set; }
 
         [Display(Name = "Phone Number")]

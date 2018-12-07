@@ -3,14 +3,16 @@
     ViewBag.Title = "SignIn";
 }
 
-<h2>SignIn</h2>
 
 <body>
-    @using (Html.BeginForm("SignIn", "Home"))
-    {
-        @Html.Raw("Username:")<input type="text" name="userName" , id="userName" /> <br />
-        @Html.Raw("Password: ")<input type="text" name="password" , id="password" />
-        <input type="submit" />
-    }
-    <p id="error">@ViewBag.Error</p>
+    <div class="jumbotron" style="margin:50px">
+        <h2>SignIn</h2><br /><br />
+        @using (Html.BeginForm("SignIn", "Home"))
+        {
+            @Html.Raw("Username: ")<input type="text" name="userName" , id="userName" /> <br /><br />
+            @Html.Raw("Password:")<input type="password" name="password" , id="password" /><br /><br />
+            <input type="submit" />
+        }
+        <p id="error">@ViewBag.Error</p>
+    </div>
 </body>

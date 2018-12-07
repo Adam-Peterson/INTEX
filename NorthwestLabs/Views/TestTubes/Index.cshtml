@@ -4,48 +4,174 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Compound.CompoundDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TestTubeStatus.TestTubeStatusDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TestTubeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Concentration)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Compound.CompoundDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TestTubeStatus.TestTubeStatusDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TestTubeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Concentration)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TestSerialNumber }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TestSerialNumber }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TestSerialNumber })
-        </td>
-    </tr>
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
 
-</table>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        /* Fixed sidenav, full height */
+
+
+        /* On mouse-over */
+        .sidenav a:hover, .dropdown-btn:hover {
+            color: #f1f1f1;
+        }
+
+        /* Main content */
+        .main {
+            margin-left: 200px; /* Same as the width of the sidenav */
+            font-size: 20px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        /* Add an active class to the active dropdown button */
+        .active {
+            background-color: black;
+            color: white;
+        }
+
+        /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+        .dropdown-container {
+            display: none;
+            background-color: lightgray;
+            padding-left: 8px;
+        }
+
+        /* Optional: Style the caret down icon */
+        .fa-caret-down {
+            float: right;
+            padding-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidenav">
+        <button class="dropdown-btn">
+            Customer Support
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">
+                @Html.ActionLink("Generate Quote", "GenerateQuoteSeattle", "Seattle")
+            </a>
+            <a href="#">@Html.ActionLink("Create New Client", "Create", "Clients")</a>
+            <button class="dropdown-btn">
+                Client Account
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">@Html.ActionLink("Client Balance", "Index", "Clients")</a>
+                <a href="#">@Html.ActionLink("Client Reports", "ViewReport", "Client")</a>
+                <a href="#">@Html.ActionLink("Client Work Orders", "ClientWorkOrders", "Seattle")</a>
+
+            </div>
+        </div>
+        <button class="dropdown-btn">
+            Maintain Work Orders
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#"> @Html.ActionLink("Process/Approval", "ProcessApproval")</a>
+            <a href="#">@Html.ActionLink("Work Order Status", "Index", "WorkOrders")</a>
+            <a href="#">@Html.ActionLink("Completed Tests", "CompletedTests", "Seattle")</a>
+
+        </div>
+        <button class="dropdown-btn">
+            Management Reports
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#"> @Html.ActionLink("Performance Reports", "PerformanceReports")</a>
+            <a href="#">@Html.ActionLink("Profitability Reports", "ProfitabilityReports")</a>
+        </div>
+
+        <button class="dropdown-btn">
+            Catalogs
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#"> @Html.ActionLink("Pharmacology Catalog", "PharmocologyCatalog", "Client")</a>
+            <a href="#">@Html.ActionLink("Protocal Notebook", "ProtocolNotebook", "Client")</a>
+        </div>
+
+    </div>
+    <div class="main">
+        <div style="margin-top: 0px; margin-left: 20px; margin-right: 20px;">
+
+            <p>
+                <input type="button" value="Scan Another Test Tube" onclick="location.href='@Url.Action("Query", "TestTubes")'" />
+                <input type="button" value="Enter New Test Tube" onclick="location.href='@Url.Action("Create", "TestTubes")'" />
+            </p>
+            <p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Compound.CompoundDescription)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TestTubeStatus.TestTubeStatusDescription)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TestTubeID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Concentration)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Compound.CompoundDescription)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TestTubeStatus.TestTubeStatusDescription)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TestTubeID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Concentration)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.TestSerialNumber }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.TestSerialNumber }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.TestSerialNumber })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+            </p>
+
+        </div>
+    </div>
+    <script>
+        /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }</script>
+</body>
+</html>

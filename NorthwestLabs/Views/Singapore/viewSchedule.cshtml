@@ -3,6 +3,98 @@
     ViewBag.Title = "viewSchedule";
 }
 
-<h2>viewSchedule</h2>
 
-<iframe src="https://calendar.google.com/calendar/embed?src=ais.byu%40gmail.com&ctz=America%2FDenver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        /* Fixed sidenav, full height */
+
+
+        /* On mouse-over */
+        .sidenav a:hover, .dropdown-btn:hover {
+            color: #f1f1f1;
+        }
+
+        /* Main content */
+        .main {
+            margin-left: 200px; /* Same as the width of the sidenav */
+            font-size: 20px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        /* Add an active class to the active dropdown button */
+        .active {
+            background-color: black;
+            color: white;
+        }
+
+        /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+        .dropdown-container {
+            display: none;
+            background-color: lightgray;
+            padding-left: 8px;
+        }
+
+        /* Optional: Style the caret down icon */
+        .fa-caret-down {
+            float: right;
+            padding-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidenav">
+
+        <a href="#">@Html.ActionLink("Schedule Tests", "scheduleTests", "Singapore")</a>
+        <a href="#">@Html.ActionLink("View Schedule", "viewSchedule", "Singapore")</a>
+        <a href="#">@Html.ActionLink("Test Tube Status", "Index", "TestTubes")</a>
+        <a href="#">@Html.ActionLink("Query Test Tube", "Query", "TestTubes")</a>
+
+
+    </div>
+    <div class="main">
+        <center>
+            <div class="jumbotron grid-single" style="margin-top: 0px; margin-left: 20px; margin-right: 20px;">
+                <p class="lead h2 text-center">
+                    <center>
+                        <iframe src="https://calendar.google.com/calendar/embed?src=ais.byu%40gmail.com&ctz=America%2FDenver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                    </center>
+                </p>
+                <p>
+                </p>
+            </div>
+        </center>
+    </div>
+    <script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }</script>
+</body>
+</html>
